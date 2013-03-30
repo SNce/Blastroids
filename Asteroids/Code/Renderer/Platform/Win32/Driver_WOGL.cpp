@@ -6,7 +6,7 @@
 namespace Renderer
 {
 
-s32 Driver_WOGL::CreateDriverContext(void* params)
+s32 DriverImpl::CreateDriverContext(void* params)
 {
 	if(!params)
 		return -1;
@@ -71,7 +71,7 @@ s32 Driver_WOGL::CreateDriverContext(void* params)
 	return 0;
 }
 
-void Driver_WOGL::SetupScene()
+void DriverImpl::SetupScene()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Set the clear color
 
@@ -87,11 +87,11 @@ void Driver_WOGL::SetupScene()
 	m_mvMat = m_viewMat * m_modelMat;
 }
 
-void Driver_WOGL::ReshapeWindow(u32 width, u32 height)
+void DriverImpl::ReshapeWindow(u32 width, u32 height)
 {
 }
 
-void Driver_WOGL::SwapTargetBuffers()
+void DriverImpl::SwapTargetBuffers()
 {
 	SwapBuffers(m_Hdc);
 }

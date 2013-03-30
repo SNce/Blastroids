@@ -3,18 +3,21 @@
 
 #include <Asteroids\Code\Utils\UtilsPCH.h>
 
+#include <Asteroids\Code\Renderer\Platform\Win32\Driver_WOGL.h>
+
 namespace Renderer
 {
 
-class Driver
+class DriverImpl;
+
+class Driver : public DriverImpl
 {
 public:
-	virtual s32 CreateDriverContext(void* params) = 0;
-	virtual void SetupScene() = 0;
-	virtual void ReshapeWindow(u32 width, u32 height) = 0;
-	virtual void SwapTargetBuffers() = 0;
+	Driver() {};
+	~Driver() {};
 
-	virtual ~Driver() {};
+private:
+	u32 dummy;
 };
 
 }

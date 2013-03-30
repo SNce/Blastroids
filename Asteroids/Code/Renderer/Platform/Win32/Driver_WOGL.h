@@ -1,8 +1,9 @@
 #ifndef _DRIVERWOGL
 #define _DRIVERWOGL
 
+#include <Asteroids\Code\Utils\UtilsPCH.h>
+
 #include <Windows.h>
-#include <Asteroids\Code\Renderer\Driver.h>
 
 #include <Asteroids\ThirdParty\glm-0.9.3.4\glm\glm.hpp>
 #include <Asteroids\ThirdParty\glm-0.9.3.4\glm\gtc\matrix_transform.hpp>
@@ -10,23 +11,24 @@
 namespace Renderer
 {
 
-class Driver_WOGL : public Driver
+class DriverImpl
 {
 public:
-	Driver_WOGL() {};
+	DriverImpl() {};
 
 	s32 CreateDriverContext(void* params);
 	void SetupScene();
 	void ReshapeWindow(u32 width, u32 height);
 	void SwapTargetBuffers();
 
-	~Driver_WOGL() {};
+	~DriverImpl() {};
 
 private:
 	HWND m_pHwnd;
 	HGLRC m_Hglrc;
 	HDC m_Hdc;
 
+protected:
 	int m_width;
 	int m_height;
 

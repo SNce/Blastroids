@@ -12,10 +12,10 @@ class GameApp : public Util::Singleton<GameApp>
 public:
 	s32 Initialize(void* param);
 	void Run();
-	TRenderer* GetRenderer();
+	Renderer::CRenderer* GetRenderer();
 
 private:
-	TRenderer *m_pRenderer;
+	Renderer::CRenderer *m_pRenderer;
 };
 
 }

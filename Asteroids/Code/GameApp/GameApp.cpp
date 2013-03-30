@@ -7,7 +7,7 @@ namespace Asteroids
 
 s32 GameApp::Initialize(void* param)
 {
-	m_pRenderer = new TRenderer();
+	m_pRenderer = new Renderer::CRenderer();
 
 	if(!m_pRenderer->IsInitialized())
 	{
@@ -17,7 +17,7 @@ s32 GameApp::Initialize(void* param)
 	return 0;
 }
 
-TRenderer* GameApp::GetRenderer()
+Renderer::CRenderer* GameApp::GetRenderer()
 {
 	return m_pRenderer;
 }
