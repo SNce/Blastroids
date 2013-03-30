@@ -20,6 +20,10 @@ public:
 	void SetupScene();
 	bool IsInitialized() { return m_bInitialized; }
 
+	void PreRender();
+	void Render();
+	void PostRender();
+
 private:
 	Driver* m_pDriver;
 	bool m_bInitialized;

@@ -5,16 +5,13 @@
 
 bool running = true;
 
-HINSTANCE hInstance; // The HINSTANCE of this application
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM); // Standard window callback
+HINSTANCE hInstance;
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-/**
-	WndProc is a standard method used in Win32 programming for handling Window messages. Here we
-	handle our window resizing and tell our OGLContext the new window size.
-*/
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
+{
 	switch (message) {
-		case WM_SIZE: // If our window is resizing
+		case WM_SIZE:
 		{
 			g_GameApp.GetRenderer()->ReshapeWindow(LOWORD(lParam), HIWORD(lParam));
 			break;
@@ -30,10 +27,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-/**
-	createWindow is going to create our window using Windows API calls. It is then going to
-	create our OpenGL context on the window and then show our window, making it visible.
-*/
+
 bool createWindow(LPCWSTR title, int width, int height) {
 	WNDCLASS windowClass;
 	HWND hWnd;
@@ -59,8 +53,6 @@ bool createWindow(LPCWSTR title, int width, int height) {
 	hWnd = CreateWindowEx(dwExStyle, title, title, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, NULL, NULL, hInstance, NULL);
 
-	//OGLContext.create30Context(hWnd); // Create our OpenGL context on the given window we just created
-	//g_pApplication->getRenderer().createContext(hWnd);
 	g_GameApp.Initialize(reinterpret_cast<void*>(hWnd));
 
 	ShowWindow(hWnd, SW_SHOW);
@@ -69,21 +61,12 @@ bool createWindow(LPCWSTR title, int width, int height) {
 	return true;
 }
 
-/**
-	WinMain is the main entry point for Windows based applications as opposed to 'main' for console
-	applications. Here we will make the calls to create our window, setup our scene and then
-	perform our 'infinite' loop which processes messages and renders.
-*/
 int WINAPI WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR    lpCmdLine,
                      int       nCmdShow) {
 	MSG msg;
 
-	/**
-		The following 6 lines of code do conversion between char arrays and LPCWSTR variables
-		which are used in the Windows API.
-	*/
 	char *orig = "Asteroids";
 	size_t origsize = strlen(orig) + 1;
     const size_t newsize = 100;
@@ -93,24 +76,25 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	createWindow(wcstring, 1366, 768);
 
-	//g_pApplication->getRenderer().setupScene(); // Setup our OpenGL scene
+	g_GameApp.GetRenderer()->SetupScene();
 	
-	/**
-		This is our main loop, it continues for as long as running is true
-	*/
 	while (running)
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) { // If we have a message to process, process it
-			if (msg.message == WM_QUIT) {
-				running = false; // Set running to false if we have a message to quit
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) 
+		{ 
+			if (msg.message == WM_QUIT) 
+			{
+				running = false;
 			}
-			else {
+			else 
+			{
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
 		}
-		else { // If we don't have a message to process
-			//g_pApplication->Run(); // Render our scene (which also handles swapping of buffers)
+		else 
+		{
+			g_GameApp.Run();
 		}
 	}
 

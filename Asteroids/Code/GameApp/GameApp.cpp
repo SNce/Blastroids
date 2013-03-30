@@ -24,6 +24,9 @@ Renderer::CRenderer* GameApp::GetRenderer()
 
 void GameApp::Run()
 {
+	m_pRenderer->PreRender();
+	m_pRenderer->Render();
+	m_pRenderer->PostRender();
 }
 
 }

@@ -21,6 +21,8 @@ public:
 	void ReshapeWindow(u32 width, u32 height);
 	void SwapTargetBuffers();
 
+	void Clear();
+
 	~DriverImpl() {};
 
 private:

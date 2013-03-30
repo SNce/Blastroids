@@ -89,11 +89,19 @@ void DriverImpl::SetupScene()
 
 void DriverImpl::ReshapeWindow(u32 width, u32 height)
 {
+	m_width = width;
+	m_height = height;
 }
 
 void DriverImpl::SwapTargetBuffers()
 {
 	SwapBuffers(m_Hdc);
+}
+
+void DriverImpl::Clear()
+{
+	glViewport(0, 0, m_width, m_height);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 
 }
