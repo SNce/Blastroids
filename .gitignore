@@ -11,3 +11,18 @@
 *.lai
 *.la
 *.a
+
+#Visual studio crap
+*.suo
+*.sdf
+*.user
+*.filters
+*.pdb
+*.tlog
+*.lastbuildstate
+*.opensdf
+Output/
+ipch/
+[Dd]ebug*/
+[Rr]elease*/
+
