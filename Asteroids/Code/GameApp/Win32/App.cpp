@@ -74,7 +74,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     wchar_t wcstring[newsize];
     mbstowcs_s(&convertedChars, wcstring, origsize, orig, _TRUNCATE);
 
-	createWindow(wcstring, 1366, 768);
+	createWindow(wcstring, 800, 600);
 
 	g_GameApp.GetRenderer()->SetupScene();
 	
