@@ -14,11 +14,13 @@
     <ClInclude Include="..\Asteroids\Code\Engine\High\Component\Component.h" />
     <ClInclude Include="..\Asteroids\Code\Engine\High\Entity\Entity.h" />
     <ClInclude Include="..\Asteroids\Code\Engine\High\Entity\EntityManager.h" />
+    <ClInclude Include="..\Asteroids\Code\Engine\High\Levels\LevelManager.h" />
     <ClInclude Include="..\Asteroids\Code\Engine\High\Levels\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Asteroids\Code\Engine\High\Entity\Entity.cpp" />
     <ClCompile Include="..\Asteroids\Code\Engine\High\Entity\EntityManager.cpp" />
+    <ClCompile Include="..\Asteroids\Code\Engine\High\Levels\LevelManager.cpp" />
     <ClCompile Include="..\Asteroids\Code\Engine\High\Levels\World.cpp" />
   </ItemGroup>
   <ItemGroup>
