@@ -9,10 +9,14 @@ namespace EngineHigh
 class World
 {
 public:
+	World(const char* name);
 	void Initialize();
+	virtual void Run();
+
 private:
 	EntityManager* m_pEntityManager;
-	World* m_pNextWorld;
+
+	char* m_pName;
 };
 
 }

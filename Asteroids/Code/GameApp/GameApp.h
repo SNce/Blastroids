@@ -1,6 +1,8 @@
 #ifndef _GAMEAPP
 #define _GAMEAPP
 
+#include <Asteroids\Code\Blasteroids_Game\Levels\BlasteroidsGame.h>
+
 #include <Asteroids\Code\Utils\UtilsPCH.h>
 #include <Asteroids\Code\Renderer\Renderer.h>
 #include <Asteroids\Code\Core\Timer.h>
@@ -18,6 +20,7 @@ public:
 private:
 	Renderer::CRenderer *m_pRenderer;
 	Core::Timer *m_pTimer;
+	Blasteroids::BlasteroidsGame* game;
 };
 
 }

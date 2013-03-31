@@ -7,6 +7,9 @@ namespace Application
 
 s32 GameApp::Initialize(void* param)
 {
+	game = new Blasteroids::BlasteroidsGame();
+	game->Initialize();
+
 	m_pRenderer = new Renderer::CRenderer();
 	m_pTimer = new Core::Timer();
 
@@ -28,7 +31,9 @@ void GameApp::Run()
 	static unsigned long ticks = 0;
 
 	m_pTimer->Start();
-
+		
+		game->Run();
+		
 		m_pRenderer->PreRender();
 		m_pRenderer->Render();
 		m_pRenderer->PostRender();
