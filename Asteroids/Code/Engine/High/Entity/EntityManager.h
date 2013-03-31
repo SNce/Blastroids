@@ -18,6 +18,7 @@ public:
 
 	void AddEntity(Entity* e);
 
+	template <typename C>
 	void AddComponent(Entity& e, Component* c);
 	
 	Component* GetComponent(Entity& e, Component* c);
