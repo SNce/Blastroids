@@ -10,10 +10,10 @@ class World
 {
 public:
 	World(const char* name);
-	void Initialize();
+	virtual void Initialize();
 	virtual void Run();
 
-private:
+protected:
 	EntityManager* m_pEntityManager;
 
 	char* m_pName;

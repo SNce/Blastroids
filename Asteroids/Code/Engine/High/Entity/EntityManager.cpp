@@ -3,6 +3,18 @@
 namespace EngineHigh
 {
 
+void EntityManager::AddEntity(Entity* e)
+{
+	EntityMap::const_iterator emi = _activeEntities.find(e->GetID());
+
+	// Entity doesn't exist already
+	if(emi == _activeEntities.end())
+	{
+		std::pair<unsigned int, Entity*> ePair = std::make_pair(e->GetID(), e);
+		_activeEntities.insert(ePair);
+	}
+}
+
 void EntityManager::AddComponent(Entity& e, Component* c)
 {
 	ComponentMap::const_iterator cmi = _components.find(typeid(c).hash_code());

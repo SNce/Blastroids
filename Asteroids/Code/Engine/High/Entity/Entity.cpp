@@ -5,6 +5,11 @@ namespace EngineHigh
 
 unsigned int Entity::ms_nextID = 0;
 
+Entity::Entity()
+{
+	Initialize();
+}
+
 void Entity::Initialize()
 {
 	m_ID = ms_nextID;

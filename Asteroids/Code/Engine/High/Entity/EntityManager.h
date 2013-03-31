@@ -15,6 +15,9 @@ typedef std::unordered_map<unsigned int, Entity*> EntityMap;
 class EntityManager
 {
 public:
+
+	void AddEntity(Entity* e);
+
 	void AddComponent(Entity& e, Component* c);
 	
 	Component* GetComponent(Entity& e, Component* c);

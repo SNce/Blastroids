@@ -10,11 +10,12 @@ World::World(const char* name)
 	size_t length = strlen(name);
 	m_pName = new char[length+1];
 	strcpy(m_pName, name);
+
+	m_pEntityManager = new EntityManager();
 }
 
 void World::Initialize()
 {
-	m_pEntityManager = new EntityManager();
 }
 
 void World::Run()
