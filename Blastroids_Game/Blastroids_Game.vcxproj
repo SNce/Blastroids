@@ -11,10 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Asteroids\Code\Blasteroids_Game\Components\RenderComponent.h" />
+    <ClInclude Include="..\Asteroids\Code\Blasteroids_Game\Components\TransformComponent.h" />
     <ClInclude Include="..\Asteroids\Code\Blasteroids_Game\Levels\BlasteroidsGame.h" />
+    <ClInclude Include="..\Asteroids\Code\Blasteroids_Game\Levels\Worlds\MainWorld.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Asteroids\Code\Blasteroids_Game\Components\RenderComponent.cpp" />
+    <ClCompile Include="..\Asteroids\Code\Blasteroids_Game\Components\TransformComponent.cpp" />
     <ClCompile Include="..\Asteroids\Code\Blasteroids_Game\Levels\BlasteroidsGame.cpp" />
+    <ClCompile Include="..\Asteroids\Code\Blasteroids_Game\Levels\Worlds\MainWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">

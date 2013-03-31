@@ -1,4 +1,5 @@
 #include <Asteroids\Code\Blasteroids_Game\Levels\BlasteroidsGame.h>
+#include <Asteroids\Code\Blasteroids_Game\Levels\Worlds\MainWorld.h>
 
 namespace Blasteroids
 {
@@ -14,7 +15,8 @@ void BlasteroidsGame::Run()
 
 void BlasteroidsGame::Initialize()
 {
-	EngineHigh::World* mainWorld = new EngineHigh::World("Game");
+	Blasteroids::MainWorld* mainWorld = new Blasteroids::MainWorld("MainWorld");
+	mainWorld->Initialize();
 	EngineHigh::LevelManager::Initialize(mainWorld);
 }
 
