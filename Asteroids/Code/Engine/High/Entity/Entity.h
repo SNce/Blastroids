@@ -11,8 +11,10 @@ class Entity
 {
 public:
 	unsigned int GetID();
+	void Initialize();
 private:
 	unsigned int m_ID;
+	static unsigned int ms_nextID;
 };
 
 }

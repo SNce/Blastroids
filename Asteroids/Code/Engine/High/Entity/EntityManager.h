@@ -27,7 +27,17 @@ public:
 	template <typename C>
 	void RemoveComponent(Entity& e);
 
+	bool HasComponent(Entity& e, Component* c);
+
+	template <typename C>
+	bool HasComponent(Entity& e);
+
 private:
+
+	Component* _GetComponent(Entity& e, size_t hash);
+	void _RemoveComponent(Entity& e, size_t hash);
+	bool _HasComponent(Entity& e, size_t hash);
+
 	// @ CHANGE THIS SOON!!
 	// Using STL containers :o
 	ComponentMap _components;

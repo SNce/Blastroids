@@ -1,11 +1,17 @@
 template <typename C>
 Component* EntityManager::GetComponent(Entity& e)
 {
-	// Implement later, not used now
+	return _GetComponent(e, typeid(C).hash_code());
 }
 
 template <typename C>
 void EntityManager::RemoveComponent(Entity& e)
 {
-	// Implement later, not used now
+	_RemoveComponent(e, typeid(C).hash_code());
+}
+
+template <typename C>
+bool EntityManager::HasComponent(Entity& e)
+{
+	return _HasComponent(e, typeid(C).hash_code());
 }
