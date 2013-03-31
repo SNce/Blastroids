@@ -49,7 +49,8 @@ unsigned long TimerImpl::Stop()
 	_after = GetTickCount();
 	unsigned long ticks = _after - _before;
 
-	// if perf timer is being used check for a glitch.
+	// Sometimes the query performance timer jumps
+	// if so check for a glitch.
 	if(m_bUsePerformanceTimer)
 	{
 		long glitch = perfTicks - ticks;

@@ -28,9 +28,11 @@ void GameApp::Run()
 	static unsigned long ticks = 0;
 
 	m_pTimer->Start();
-	m_pRenderer->PreRender();
-	m_pRenderer->Render();
-	m_pRenderer->PostRender();
+
+		m_pRenderer->PreRender();
+		m_pRenderer->Render();
+		m_pRenderer->PostRender();
+
 	ticks = m_pTimer->Stop();
 }
 
