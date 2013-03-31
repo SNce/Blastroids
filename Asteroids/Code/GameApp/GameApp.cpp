@@ -1,8 +1,8 @@
 #include <Asteroids\Code\GameApp\GameApp.h>
 
-CreateSingleton(Asteroids::GameApp);
+CreateSingleton(Application::GameApp);
 
-namespace Asteroids
+namespace Application
 {
 
 s32 GameApp::Initialize(void* param)

@@ -5,7 +5,7 @@
 #include <Asteroids\Code\Renderer\Renderer.h>
 #include <Asteroids\Code\Core\Timer.h>
 
-namespace Asteroids
+namespace Application
 {
 
 class GameApp : public Util::Singleton<GameApp>
@@ -22,6 +22,6 @@ private:
 
 }
 
-#define g_GameApp Asteroids::GameApp::instance()
+#define g_GameApp Application::GameApp::instance()
 
 #endif
