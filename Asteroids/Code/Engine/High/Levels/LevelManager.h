@@ -13,7 +13,7 @@ public:
 	void Initialize(World* world);
 	void AddLevel(World* world);
 	World* GetNextLevel();
-private:
+protected:
 	// Just a temp container for worlds.
 	// List are bad because we dont have random access.
 	std::list<World*> _levelList;
