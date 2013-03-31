@@ -3,6 +3,7 @@
 
 #include <Asteroids\Code\Utils\UtilsPCH.h>
 #include <Asteroids\Code\Renderer\Renderer.h>
+#include <Asteroids\Code\Core\Timer.h>
 
 namespace Asteroids
 {
@@ -16,6 +17,7 @@ public:
 
 private:
 	Renderer::CRenderer *m_pRenderer;
+	Core::Timer *m_pTimer;
 };
 
 }

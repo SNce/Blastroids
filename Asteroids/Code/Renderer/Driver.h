@@ -3,7 +3,11 @@
 
 #include <Asteroids\Code\Utils\UtilsPCH.h>
 
-#include <Asteroids\Code\Renderer\Platform\Win32\Driver_WOGL.h>
+#ifdef _WIN32
+	#ifdef _OGL
+		#include <Asteroids\Code\Renderer\Platform\Win32\Driver_WOGL.h>
+	#endif
+#endif
 
 namespace Renderer
 {
@@ -15,9 +19,6 @@ class Driver : public DriverImpl
 public:
 	Driver() {};
 	~Driver() {};
-
-private:
-	u32 dummy;
 };
 
 }

@@ -12,10 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Asteroids\Code\Core\Platform\Thread_Win32.h" />
+    <ClInclude Include="..\Asteroids\Code\Core\Platform\Timer_Win32.h" />
     <ClInclude Include="..\Asteroids\Code\Core\Thread.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Asteroids\Code\Core\Platform\Thread_Win32.cpp" />
+    <ClCompile Include="..\Asteroids\Code\Core\Platform\Timer_Win32.cpp" />
+    <ClCompile Include="..\Asteroids\Code\Core\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{13EC9558-B1CF-43A1-B63F-F7F67F1FCB09}</ProjectGuid>
