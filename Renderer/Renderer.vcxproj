@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Asteroids\Code\Renderer\CommandBuffer.h" />
     <ClInclude Include="..\Asteroids\Code\Renderer\Driver.h" />
     <ClInclude Include="..\Asteroids\Code\Renderer\Platform\Win32\Driver_WOGL.h" />
     <ClInclude Include="..\Asteroids\Code\Renderer\Renderer.h" />

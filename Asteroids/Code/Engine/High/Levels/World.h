@@ -13,6 +13,8 @@ public:
 	virtual void Initialize();
 	virtual void Run();
 
+	EntityManager* GetEntityManager() { return m_pEntityManager; }
+
 protected:
 	EntityManager* m_pEntityManager;
 

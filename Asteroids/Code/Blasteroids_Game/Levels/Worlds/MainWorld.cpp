@@ -18,6 +18,8 @@ void MainWorld::Initialize()
 	transformComponent->SetPosition(0.0f, 0.0f);
 
 	RenderComponent* renderComponent = new RenderComponent();
+	renderComponent->LoadMesh("..\\..\\Content\\Models\\tri2.msh");
+	renderComponent->SetShaders("..\\..\\Content\\Shaders\\clip.vsh", "..\\..\\Content\\Shaders\\red.fsh");
 
 	m_pEntityManager->AddComponent<TransformComponent>(*m_pPlayerEntity, transformComponent);
 	m_pEntityManager->AddComponent<RenderComponent>(*m_pPlayerEntity, renderComponent);

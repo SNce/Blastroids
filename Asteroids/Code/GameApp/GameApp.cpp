@@ -7,9 +7,6 @@ namespace Application
 
 s32 GameApp::Initialize(void* param)
 {
-	game = new Blasteroids::BlasteroidsGame();
-	game->Initialize();
-
 	m_pRenderer = new Renderer::CRenderer();
 	m_pTimer = new Core::Timer();
 
@@ -17,6 +14,9 @@ s32 GameApp::Initialize(void* param)
 	{
 		m_pRenderer->Initialize(param);
 	}
+
+	game = new Blasteroids::BlasteroidsGame();
+	game->Initialize();
 
 	return 0;
 }
@@ -33,9 +33,20 @@ void GameApp::Run()
 	m_pTimer->Start();
 		
 		game->Run();
-		
+
 		m_pRenderer->PreRender();
-		m_pRenderer->Render();
+
+		EngineHigh::ComponentEntityMap* renderables = game->GetRenderables();
+		EngineHigh::ComponentEntityMap::const_iterator itr;
+
+		for(itr = renderables->begin(); itr != renderables->end(); itr++)
+		{
+			Renderer::CommandBuffer cbuf;
+			game->Present(itr, cbuf);
+
+			m_pRenderer->Render(&cbuf);
+		}
+
 		m_pRenderer->PostRender();
 
 	ticks = m_pTimer->Stop();

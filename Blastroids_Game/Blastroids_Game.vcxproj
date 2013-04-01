@@ -31,6 +31,9 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <ProjectReference Include="..\Renderer\Renderer.vcxproj">
+      <Project>{26fb5030-3082-4c5d-a2f7-81fd64e2d592}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{342A55DE-3E7A-4EEA-8CAD-8AFCF88DE5CE}</ProjectGuid>

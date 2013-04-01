@@ -1,8 +1,5 @@
 #include <Asteroids\Code\Renderer\Platform\Win32\Driver_WOGL.h>
 
-#include <Asteroids\ThirdParty\glew-1.9.0\include\GL\glew.h>
-#include <Asteroids\ThirdParty\glew-1.9.0\include\GL\wglew.h>
-
 namespace Renderer
 {
 
@@ -78,8 +75,10 @@ void DriverImpl::SetupScene()
 	m_cameraLookat = glm::vec3(0.0f, 0.0f, -3.0f);
 	m_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	m_cameraPos = glm::vec3(0.0f, 0.0f, 15.0f);
-		
-	m_modelMat = glm::mat4(1.0f);
+	
+	glm::scale(m_modelMat, glm::vec3(0.05f, 0.05f, 0.05f));
+	//m_modelMat = m_modelMat * scaleMat;
+
 	m_viewMat = glm::lookAt(m_cameraPos, m_cameraLookat, m_cameraUp);
 	m_projectionMat = glm::perspective(90.0f, 16.0f / 9.0f, 0.1f, 100.0f); 
 	m_projectionMat = glm::ortho(0.0f, 400.0f, 0.0f, 400.0f, -1.0f, 1.0f);
@@ -102,6 +101,24 @@ void DriverImpl::Clear()
 {
 	glViewport(0, 0, m_width, m_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+}
+
+void DriverImpl::RenderScene(CommandBuffer* cbuf)
+{
+	// Right now all our vertex shaders (just 1) use only 2 uniforms.
+	// @TODO : Write a shader / material system that keeps tracks of shader uniforms.
+	GLuint mvID = glGetUniformLocation(cbuf->progID, "mvMat");
+	GLuint projID = glGetUniformLocation(cbuf->progID, "projectionMat");
+
+	glUniformMatrix4fv(mvID, 1, GL_FALSE, &(*cbuf->mvMat)[0][0]);
+	glUniformMatrix4fv(projID, 1, GL_FALSE, &(*cbuf->projectionMat)[0][0]);
+	glUseProgram(cbuf->progID);
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glBindVertexArray(cbuf->vertexArrayID);
+	int size;
+	glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &size);
+	glDrawElements(GL_TRIANGLES, cbuf->polyCount * 3, GL_UNSIGNED_INT, 0);
 }
 
 }

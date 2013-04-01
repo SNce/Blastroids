@@ -52,3 +52,16 @@ void EntityManager::AddComponent(Entity& e, Component* c)
 	// @TODO
 	// If the entity has this component, remove it and add it again.
 }
+
+template <typename C>
+ComponentEntityMap* EntityManager::GetComponents()
+{
+	size_t hash = typeid(C).hash_code();
+	ComponentMap::const_iterator cmi = _components.find(hash);
+
+	// None of the entities have this component
+	if(cmi == _components.end())
+		return 0;
+
+	return (*cmi).second;
+}

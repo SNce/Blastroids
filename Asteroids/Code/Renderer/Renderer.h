@@ -2,6 +2,7 @@
 #define _RENDERER
 
 #include <Asteroids\Code\Utils\UtilsPCH.h>
+#include <Asteroids\Code\Renderer\CommandBuffer.h>
 #include <Asteroids\Code\Renderer\Driver.h>
 
 namespace Renderer
@@ -21,7 +22,7 @@ public:
 	bool IsInitialized() { return m_bInitialized; }
 
 	void PreRender();
-	void Render();
+	void Render(CommandBuffer* cbuf);
 	void PostRender();
 
 private:

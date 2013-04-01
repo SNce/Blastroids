@@ -24,6 +24,9 @@ public:
 	Component* GetComponent(Entity& e, Component* c);
 
 	template <typename C>
+	ComponentEntityMap* GetComponents();
+
+	template <typename C>
 	Component* GetComponent(Entity& e);
 
 	void RemoveComponent(Entity& e, Component* c);

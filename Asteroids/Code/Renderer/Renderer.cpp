@@ -26,8 +26,9 @@ void CRenderer::PreRender()
 	m_pDriver->Clear();
 }
 
-void CRenderer::Render()
+void CRenderer::Render(CommandBuffer* cbuf)
 {
+	m_pDriver->RenderScene(cbuf);
 }
 
 void CRenderer::PostRender()

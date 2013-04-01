@@ -2,11 +2,14 @@
 #define _DRIVERWOGL
 
 #include <Asteroids\Code\Utils\UtilsPCH.h>
+#include <Asteroids\Code\Renderer\CommandBuffer.h>
 
 #include <Windows.h>
 
 #include <Asteroids\ThirdParty\glm-0.9.3.4\glm\glm.hpp>
 #include <Asteroids\ThirdParty\glm-0.9.3.4\glm\gtc\matrix_transform.hpp>
+#include <Asteroids\ThirdParty\glew-1.9.0\include\GL\glew.h>
+#include <Asteroids\ThirdParty\glew-1.9.0\include\GL\wglew.h>
 
 namespace Renderer
 {
@@ -19,6 +22,7 @@ public:
 	s32 CreateDriverContext(void* params);
 	void SetupScene();
 	void ReshapeWindow(u32 width, u32 height);
+	void RenderScene(CommandBuffer* cbuf);
 	void SwapTargetBuffers();
 
 	void Clear();
