@@ -9,3 +9,6 @@ engine and renderer as loosely coupled from the platform as possible. (ideally c
 The approach will be to get most components of the engine working first and optmize later.
 
 Remember... "Premature optimization is the root of all evil".
+
+NOTE: You will see a bunch of dirty hacks since I am racing to finish this game for a submission.
+I will surely come back and fix them!
